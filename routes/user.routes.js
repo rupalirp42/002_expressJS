@@ -4,8 +4,8 @@ const express = require("express");
 
 const router = express.Router();
 
-// router.post("/create", userControllers.createUser);
-router.post("/create/:name/:age/:city/:contact", userControllers.createUser);
+router.post("/create", userControllers.createUser);
+// router.post("/create/:name/:age/:city/:contact", userControllers.createUser);
 
 router.get("/read", userControllers.getUser);
 

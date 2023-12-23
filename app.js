@@ -2,7 +2,7 @@ const express = require("express");
 var bodyParser = require("body-parser");
 
 const app = express();
-const PORT = 3000;
+const PORT = 8080;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -36,4 +36,6 @@ databaseConnection.connectDB();
 
 app.use(userRoutes);
 
-app.listen(PORT);
+app.listen(PORT, ()=> {
+    console.log(`Server is running on ${PORT}`);
+});

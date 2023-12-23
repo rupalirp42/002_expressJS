@@ -21,20 +21,20 @@ exports.createUser = async (req, res) => {
     // console.log(city);
 
     // --------using body method but array---------
-    // res.json([name, age, city]); 
+    // res.json([name, age, city]);
 
     // -------------- using body method but object---------
     // let info = req.body;
     // res.json({ name: info.name, age: info.age, city: info.city });
 
-    // const newUser = new UserModel({
-    //   name: req.body.name,
-    //   age: req.body.age,
-    //   city: req.body.city,
-    //   contact: req.body.contact,
-    // });
-    // const savedUser = await newUser.save();
-    // res.json(savedUser);
+    const newUser = new UserModel({
+      name: req.body.name,
+      age: req.body.age,
+      city: req.body.city,
+      contact: req.body.contact,
+    });
+    const savedUser = await newUser.save();
+    res.json(savedUser);
 
     //  ---------------using query method----------
     // let name = req.query.name;
@@ -49,14 +49,14 @@ exports.createUser = async (req, res) => {
 
     // -------------- using params method---------------
     // for this router url also changed router.post("/create/:name/:age/:city/:contact", userControllers.createUser);
-    const newUser = new UserModel({
-      name: req.params.name,
-      age: req.params.age,
-      city: req.params.city,
-      contact: req.params.contact,
-    });
-    const savedUser = await newUser.save();
-    res.json(savedUser);
+    // const newUser = new UserModel({
+    //   name: req.params.name,
+    //   age: req.params.age,
+    //   city: req.params.city,
+    //   contact: req.params.contact,
+    // });
+    // const savedUser = await newUser.save();
+    // res.json(savedUser);
   } catch (error) {
     console.log("Error", error);
   }
